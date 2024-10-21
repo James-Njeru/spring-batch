@@ -8,6 +8,11 @@ public class CustomerProcessor implements ItemProcessor<Customer, Customer> {
 
     @Override
     public Customer process(Customer customer) throws Exception {
+        String country = customer.getCountry().trim().toLowerCase();
+
+        if (country.equalsIgnoreCase("United States")) {
+            return customer;
+        }
         return null;
     }
 }
